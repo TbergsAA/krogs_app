@@ -4,12 +4,14 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    #root 'admin#index'
-   resources :admin
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   namespace :admin do
-   
+    resources :categories do
+      resources :products
+    end
+    root 'categories#index'
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
