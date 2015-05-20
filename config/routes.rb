@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
   namespace :admin do
     resources :categories do
-      resources :products
+      resources :products 
     end
     root 'categories#index'
+
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
