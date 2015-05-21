@@ -1,4 +1,5 @@
-<%= form_for @product, url: {action: "create"} do |f| %>
+<%= form_for [@category, @product], url: {action: "create"} do |f| %>
+
   <%= f.label :Name %>
   <%= f.text_field :name %><br>
   <%= f.label :Price %>
@@ -8,4 +9,5 @@
   <%= f.label :Available_count %>
   <%= f.text_field :available_count %><br>
   <%= f.submit "Create" %>
+
 <% end %>

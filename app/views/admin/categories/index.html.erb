@@ -1,5 +1,9 @@
 <h1>Categories</h1>
-
-<%= @categories.each do |category|%>
-<%= category.name %>
+ 
+<h3>
+<%= link_to "New Category", new_admin_category_path%>
+</h3>
+ 
+<%- @categories.each do |category| %>
+  <%= link_to category.name, new_admin_category_product_path(category)%>
 <% end %>

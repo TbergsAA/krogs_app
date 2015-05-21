@@ -4,7 +4,12 @@ class Admin::ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    @category = Category.find(params['category_id'])
+    @product = @category.products.new
+  end
+
+  def edit
+  @product = Product.find(params[:id])
   end
 
   def create
