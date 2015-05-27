@@ -9,11 +9,12 @@ class Admin::ProductsController < ApplicationController
   end
 
   def edit
-  @product = Product.find(params[:id])
+  @product = Products.find(params[:id])
   end
 
   def create
-    @product = Product.new(product_params)
+    @category = Category.find(params['category_id'])
+    @product = @category.products.new(product_params)
     if @product.save
       redirect_to action: "index"
     else
