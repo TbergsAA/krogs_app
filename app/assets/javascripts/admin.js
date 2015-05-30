@@ -13,4 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require selectize
 //= require bootstrap.js
+
+
+$(function() {
+
+  $('body form input#product_components').selectize({
+      delimiter: ',',
+      persist: false,
+      create: function(input) {
+          return {
+              value: input,
+              text: input
+          }
+      }
+  });
+
+});

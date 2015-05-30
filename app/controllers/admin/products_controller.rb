@@ -1,4 +1,4 @@
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController < AdminController
 
   def index
   end
@@ -9,7 +9,15 @@ class Admin::ProductsController < ApplicationController
   end
 
   def edit
-  @product = Products.find(params[:id])
+    @product = Products.find(params[:id])
+  end
+
+  def update
+    @product = Products.find(params[:id])
+    if @product.update(product_params)
+      redirect_to action: "index"
+    else
+      render :edit
   end
 
   def create
@@ -26,6 +34,14 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
+    normalized_params
     params.require(:product).permit(:name, :price, :components, :category_id, :available_count)
   end
+
+  def normalized_params
+    if params["product"]["components"].is_a?(String)
+      params["product"]["components"] = params["product"]["components"].split(",")
+    end
+  end
 end
+

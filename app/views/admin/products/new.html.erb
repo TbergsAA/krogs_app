@@ -5,7 +5,7 @@
   <%= f.label :Price %>
   <%= f.text_field :price %><br>
   <%= f.label :Components %>
-  <%= f.text_field :components %><br>
+  <%= f.hidden_field :components, value: @product.components.join(',') %><br>
   <%= f.label :Available_count %>
   <%= f.text_field :available_count %><br>
   <%= f.submit "Create" %>
