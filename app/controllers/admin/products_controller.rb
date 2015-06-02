@@ -1,6 +1,8 @@
 class Admin::ProductsController < AdminController
 
   def index
+    @category = Category.find(params['category_id'])
+    @products = @category.products
   end
 
   def new
@@ -9,11 +11,11 @@ class Admin::ProductsController < AdminController
   end
 
   def edit
-    @product = Products.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def update
-    @product = Products.find(params[:id])
+    @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to action: "index"
     else
@@ -36,7 +38,7 @@ class Admin::ProductsController < AdminController
 
   def product_params
     normalized_params
-    params.require(:product).permit(:name, :price, :components, :category_id, :available_count)
+    params.require(:product).permit(:name, :price, :category_id, :available_count, components: [])
   end
 
   def normalized_params
