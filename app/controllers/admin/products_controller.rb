@@ -18,6 +18,7 @@ class Admin::ProductsController < AdminController
       redirect_to action: "index"
     else
       render :edit
+    end
   end
 
   def create

@@ -5,5 +5,5 @@
 </h3>
  
 <%- @categories.each do |category| %>
-  <%= link_to category.name, new_admin_category_product_path(category)%>
+ <li> <%= link_to category.name, new_admin_category_product_path(category)%></li>
 <% end %>
