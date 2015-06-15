@@ -1,0 +1,17 @@
+
+<ul>
+  <% @categories.each do |category|%>
+    
+    <li> <%= category.name %> </li>
+    <ul>
+      <% category.products.each do |product| %>
+        <li><%= product.name %>
+          <%= product.price %> Euro
+          <%= product.components.join(",") %>
+          <%= product.available_count %> Pieejamais daudzums
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</ul>
+    
