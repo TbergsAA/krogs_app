@@ -2,14 +2,14 @@
 <ul>
   <% @categories.each do |category|%>
     
-    <li> <%= category.name %> </li>
+    <h3><li> <%= category.name %> </li></h3>
     <ul>
       <% category.products.each do |product| %>
-        <li><%= product.name %>
-          <%= product.price %> Euro
-          <%= product.components.join(",") %>
-          <%= product.available_count %> Pieejamais daudzums
-        </li>
+        <h4><%= product.name %> -------------
+        <%= product.price %> Euro
+        <%= check_box_tag(:product) %></h4>
+        Pieejamais daudzums: <%= product.available_count %>
+        <p>Sastāvs:<%= product.components.join(", ") %></p>
       <% end %>
     </ul>
   <% end %>
