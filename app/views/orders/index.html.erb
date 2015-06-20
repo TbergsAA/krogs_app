@@ -1,4 +1,5 @@
 
+<h1>Zaķu krogs</h1>
 <ul>
   <% @categories.each do |category|%>
     
@@ -6,9 +7,9 @@
     <ul>
       <% category.products.each do |product| %>
         <h4><%= product.name %> -------------
-        <%= product.price %> Euro
-        <%= check_box_tag(:product) %></h4>
-        Pieejamais daudzums: <%= product.available_count %>
+          <%= product.price %> Euro
+          <%= check_box_tag(:product) %> </h4>
+          Pieejamais daudzums: <%= product.available_count %>
         <p>Sastāvs:<%= product.components.join(", ") %></p>
       <% end %>
     </ul>

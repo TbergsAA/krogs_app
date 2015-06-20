@@ -13,3 +13,19 @@
  *= require bootstrap_and_overrides.css 
  *= require_self
  */
+
+body { padding-top: 60px; }
+
+body {
+  background-image: url("orange.jpg");
+}
+
+h3 {
+  text-decoration: underline;
+}
+
+h1 {
+  text-align: right;
+  font-style:oblique;
+  font-weight: bold;
+}
